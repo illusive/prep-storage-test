@@ -1,6 +1,6 @@
 # Offline Knowledge: iOS storage test
 
-Throwaway test page. Add it to the iPhone Home Screen, open it from there, and check:
+Throwaway test page, deployed on Vercel as a static site (no build step). Add it to the iPhone Home Screen, open it from there, and check:
 how much storage a home-screen web app gets, whether persistent storage is granted,
 and whether the knowledge pack stays available offline over time.
 
