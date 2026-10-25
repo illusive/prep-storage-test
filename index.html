@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>OK storage test</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <meta name="apple-mobile-web-app-title" content="OK test">
+  <style>
+    :root { --bg: #f8f8f5; --surface: #fff; --text: #1c1c1e; --muted: #5c5c62; --border: #deded8; --accent: #1e5c48; --bad: #a3261b; --good: #1e6b3a; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #101011; --surface: #1e1e20; --text: #ececea; --muted: #a6a6aa; --border: #3a3a3e; --accent: #7ec8a8; --bad: #ff8a80; --good: #7ed79a; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: max(16px, env(safe-area-inset-top)) 16px 40px; background: var(--bg); color: var(--text);
+      font: -apple-system-body; font-family: -apple-system, system-ui, sans-serif; }
+    h1 { font-size: 1.6rem; margin: 8px 0 4px; }
+    h2 { font-size: 1.1rem; margin: 0 0 8px; }
+    section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin: 14px 0; }
+    dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; }
+    dt { color: var(--muted); } dd { margin: 0; overflow-wrap: anywhere; }
+    button { font: inherit; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--accent); background: transparent; color: var(--accent); margin: 4px 6px 4px 0; min-height: 44px; }
+    button:disabled { opacity: .4; }
+    input { font: inherit; width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); min-height: 44px; }
+    .muted { color: var(--muted); } .good { color: var(--good); } .bad { color: var(--bad); }
+    ul { padding-left: 18px; margin: 8px 0 0; }
+  </style>
+</head>
+<body>
+  <h1>Storage test</h1>
+  <p class="muted">Throwaway test for the Offline Knowledge PWA question. Add this page to the Home Screen, open it from there, then use the buttons below.</p>
+
+  <section>
+    <h2>Environment</h2>
+    <dl id="env"></dl>
+  </section>
+
+  <section>
+    <h2>Storage</h2>
+    <dl id="storage"></dl>
+    <button id="persist">Request persistent storage</button>
+    <button id="refresh">Refresh numbers</button>
+  </section>
+
+  <section>
+    <h2>Knowledge pack in OPFS</h2>
+    <dl id="pack"><dt>Status</dt><dd>Loading…</dd></dl>
+    <p><input id="q" placeholder="Search a food (min. 3 letters), e.g. kal" autocomplete="off" autocapitalize="off" disabled></p>
+    <div id="results" class="muted"></div>
+  </section>
+
+  <section>
+    <h2>Capacity test</h2>
+    <p class="muted">Writes a test file into the app's private storage, then deletes it on request. Large sizes take a while and need that much free space on the phone.</p>
+    <button data-mb="256">Write 256 MB</button>
+    <button data-mb="1024">Write 1 GB</button>
+    <button data-mb="4096">Write 4 GB</button>
+    <button id="delete">Delete test file</button>
+    <dl id="capacity"><dt>Status</dt><dd>Not run</dd></dl>
+  </section>
+
+  <section>
+    <h2>Persistence log</h2>
+    <p class="muted">Each launch is recorded. If data is lost, the first-seen date resets and the pack is imported again.</p>
+    <dl id="log"></dl>
+  </section>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

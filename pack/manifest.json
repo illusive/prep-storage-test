@@ -1,0 +1,26 @@
+{
+  "packId": "core",
+  "version": "0.1.0",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-24T20:24:52.955Z",
+  "file": "pack.sqlite",
+  "sizeBytes": 151552,
+  "sha256": "afb13b78915d30c6b3fa20e004832cdd1b9002812acd3a88eb930b9ec0621b4b",
+  "dependencies": [],
+  "languages": [
+    "da",
+    "en"
+  ],
+  "counts": {
+    "guides": 0,
+    "storageItems": 101,
+    "sources": 1
+  },
+  "sources": [
+    {
+      "id": "us-fsis-foodkeeper",
+      "license": "CC0-1.0",
+      "dataVersion": "128 (2018-09-06)"
+    }
+  ]
+}
